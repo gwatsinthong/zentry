@@ -26,18 +26,36 @@ const BentoTilt = ({ children, className = '' }) => {
   }
 
   return (
-    <div className={className} ref={itemRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{ transform: transformStyle }}>
+    <div 
+      className={className} 
+      ref={itemRef} 
+      onMouseMove={handleMouseMove} 
+      onMouseLeave={handleMouseLeave} 
+      style={{ transform: transformStyle }}
+    >
       {children}
     </div>
   )
 }
 
 const BentoCard = ({ src, title, description }) => {
+  const videoRef = useRef(null)
+
+  const handleMouseEnter = () => {
+    videoRef.current?.play()
+  }
+
+  const handleMouseLeave = () => {
+    videoRef.current?.pause()
+    videoRef.current.currentTime = 0 // optional: rewind to start
+  }
+
   return (
-    <div className="relative size-full">
-      <video 
+    <div className="relative size-full" onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
+      <video
+        ref={videoRef} 
         src={src} 
-        autoPlay 
         loop 
         muted 
         className="absolute top-0 left-0 size-full object-cover object-center" 

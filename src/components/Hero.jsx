@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Button from './Button';
-import { TiLocation, TiLocationArrow } from 'react-icons/ti';
+import { TiLocationArrow } from 'react-icons/ti';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
@@ -135,7 +135,7 @@ const Hero = () => {
 
                     <p className="mb-5 max-w-64 font-robert-regular text-blue-100">Enter the Metagame Layer <br /> Unleash the Play Economy</p>
 
-                    <Button id="watch-trailer" title="Watch Trailer" left-icon={<TiLocationArrow/>}  containerClass="!bg-yellow-300 flex-center gap-1" />
+                    <Button id="watch-trailer" title="Watch Trailer" leftIcon={<TiLocationArrow/>}  containerClass="!bg-yellow-300 flex-center gap-1" />
                 </div>
             </div>
         </div>
